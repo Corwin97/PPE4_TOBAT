@@ -5,6 +5,8 @@ namespace TOBAT\Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use TOBAT\Bundle\Entity\Admin;
 use TOBAT\Bundle\Form\AdminType;
+use TOBAT\Bundle\Entity\Bateau;
+use TOBAT\Bundle\Form\BateauType;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
@@ -40,7 +42,11 @@ class DefaultController extends Controller
     }
     public function ajouterAction()
     {
-        return $this->render('TOBATBundle:Default:ajout.html.twig');
+        $bateau = new Bateau();
+
+    	$form = $this-> get ('form.factory')-> create(BateauType::class, $bateau);
+    	
+        return $this->render('TOBATBundle:Default:ajout.html.twig', array('form' => $form->createView(),));
     }
 
 }
