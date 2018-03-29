@@ -1,0 +1,19 @@
+tobat_homepage:
+    path:     /
+    defaults: { _controller: TOBATBundle:Default:index }
+
+tobat_connexion:
+    path:     /connexion
+    defaults: { _controller: TOBATBundle:Default:connexion}
+
+tobat_ajouter:
+    path:   /ajouter
+    defaults:  { _controller: TOBATBundle:Default:ajouter }
+
+tobat_modifier:
+    path:   /modifier
+    defaults:  { _controller: TOBATBundle:Default:modifier }
+
+tobat_supprimer:
+    path:   /supprimer
+    defaults:  { _controller: TOBATBundle:Default:supprimer }
