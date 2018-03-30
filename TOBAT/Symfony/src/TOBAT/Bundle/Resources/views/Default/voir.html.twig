@@ -1,0 +1,16 @@
+
+
+<ul>
+	<li><a href="{{ path('tobat_ajouter') }}">Ajouter un bateau</a></li>
+	<table>
+	<tr> <th> Prenom </th> </tr>
+	{% for bateau in LesBateaux %}
+		<tr>
+			<td>{{ bateau.nom }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+		
+	</ul>
+
+

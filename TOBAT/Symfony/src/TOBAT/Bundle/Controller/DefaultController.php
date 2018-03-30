@@ -21,6 +21,24 @@ class DefaultController extends Controller
         return $this->render('TOBATBundle:Default:index.html.twig', array('form' => $form->createView(),));
     }
 
+    public function voirAction()
+    {
+      $managerBateau = $this->getDoctrine()
+                               ->getManager();
+
+        $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
+        
+        //A SUPPRIMER
+        $LesBateaux = array
+  (
+  array("nom"=>"Bateau1"),
+  array("nom"=>"Bateau2"),
+  array("nom"=>"Bateau15"),
+  array("nom"=>"Bateau13")
+  );
+      return $this->render('TOBATBundle:Default:voir.html.twig', array('LesBateaux' =>   $LesBateaux ));
+    }
+
 	public function connexionAction($login, $password)
     {
         $connexion = new Admin();
@@ -29,7 +47,7 @@ class DefaultController extends Controller
     	$managerAdmin = $this->getDoctrine()
         	                     ->getManager();
 
-      	$admins = $managerAdmin->getRepository('SIOBlogBundle:Admin')->findAll();
+      	$admins = $managerAdmin->getRepository('TOBATBundle:Admin')->findAll();
 
       	
       		if($login == $admin["login"] && $password == $admin["password"])

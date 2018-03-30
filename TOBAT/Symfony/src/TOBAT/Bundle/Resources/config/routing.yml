@@ -3,8 +3,8 @@ tobat_homepage:
     defaults: { _controller: TOBATBundle:Default:index }
 
 tobat_connexion:
-    path:     /connexion
-    defaults: { _controller: TOBATBundle:Default:connexion}
+    path:     /voir
+    defaults: { _controller: TOBATBundle:Default:voir}
 
 tobat_ajouter:
     path:   /ajouter

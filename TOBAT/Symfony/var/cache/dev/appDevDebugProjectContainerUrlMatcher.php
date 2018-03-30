@@ -113,8 +113,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // tobat_connexion
-        if ('/connexion' === $pathinfo) {
-            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::connexionAction',  '_route' => 'tobat_connexion',);
+        if ('/voir' === $pathinfo) {
+            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::voirAction',  '_route' => 'tobat_connexion',);
         }
 
         // tobat_ajouter
@@ -123,13 +123,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // tobat_modifier
-        if ('/modifier' === $pathinfo) {
-            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::modifierAction',  '_route' => 'tobat_modifier',);
+        if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_modifier')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::modifierAction',));
         }
 
         // tobat_supprimer
-        if ('/supprimer' === $pathinfo) {
-            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::supprimerAction',  '_route' => 'tobat_supprimer',);
+        if (0 === strpos($pathinfo, '/supprimer') && preg_match('#^/supprimer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_supprimer')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::supprimerAction',));
         }
 
         // homepage

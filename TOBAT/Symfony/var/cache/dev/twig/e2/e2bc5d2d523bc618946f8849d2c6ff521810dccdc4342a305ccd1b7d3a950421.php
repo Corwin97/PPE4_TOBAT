@@ -15,11 +15,11 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9f9eacda85dd0ee97152366d57c8baeba39aaf220d4eb3c67615042809aa9655 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9f9eacda85dd0ee97152366d57c8baeba39aaf220d4eb3c67615042809aa9655->enter($__internal_9f9eacda85dd0ee97152366d57c8baeba39aaf220d4eb3c67615042809aa9655_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
+        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03->enter($__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
 
-        $__internal_038893c60e3c1adc000efb4862723c39f35d0908e242f8e50ef4a911a517b99a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_038893c60e3c1adc000efb4862723c39f35d0908e242f8e50ef4a911a517b99a->enter($__internal_038893c60e3c1adc000efb4862723c39f35d0908e242f8e50ef4a911a517b99a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
+        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb->enter($__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
 
         // line 1
         echo "<h3>Ajouter un bateau</h3>
@@ -432,14 +432,25 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
         // line 239
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Photo "));
         echo "
+    <div class=\"col-sm-10\">
+      ";
+        // line 241
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'widget');
+        echo "
+    </div>
+  </div>
+
+      ";
+        // line 246
+        echo "  <div class=\"form-group\">
     ";
-        // line 240
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'errors');
+        // line 247
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "Enregistrer", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Enregistrer "));
         echo "
     <div class=\"col-sm-10\">
       ";
-        // line 242
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'widget');
+        // line 249
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "Enregistrer", array()), 'widget');
         echo "
     </div>
   </div>
@@ -453,10 +464,10 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
   
 </div>";
         
-        $__internal_9f9eacda85dd0ee97152366d57c8baeba39aaf220d4eb3c67615042809aa9655->leave($__internal_9f9eacda85dd0ee97152366d57c8baeba39aaf220d4eb3c67615042809aa9655_prof);
+        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03->leave($__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03_prof);
 
         
-        $__internal_038893c60e3c1adc000efb4862723c39f35d0908e242f8e50ef4a911a517b99a->leave($__internal_038893c60e3c1adc000efb4862723c39f35d0908e242f8e50ef4a911a517b99a_prof);
+        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb->leave($__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb_prof);
 
     }
 
@@ -472,7 +483,7 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
 
     public function getDebugInfo()
     {
-        return array (  442 => 242,  437 => 240,  433 => 239,  430 => 238,  422 => 233,  415 => 229,  409 => 226,  406 => 224,  398 => 219,  391 => 215,  385 => 212,  382 => 210,  374 => 205,  367 => 201,  361 => 198,  358 => 196,  350 => 191,  343 => 187,  337 => 184,  334 => 182,  326 => 177,  319 => 173,  313 => 170,  310 => 168,  302 => 163,  295 => 159,  289 => 156,  286 => 154,  278 => 149,  271 => 145,  265 => 142,  262 => 140,  254 => 135,  247 => 131,  241 => 128,  238 => 126,  230 => 121,  223 => 117,  217 => 114,  214 => 112,  206 => 107,  199 => 103,  193 => 100,  190 => 98,  182 => 93,  175 => 89,  169 => 86,  166 => 84,  158 => 79,  151 => 75,  145 => 72,  142 => 70,  134 => 65,  127 => 61,  121 => 58,  118 => 56,  110 => 51,  103 => 47,  97 => 44,  94 => 42,  86 => 37,  79 => 33,  73 => 30,  70 => 28,  62 => 23,  55 => 19,  49 => 16,  46 => 14,  41 => 10,  35 => 7,  30 => 4,  25 => 1,);
+        return array (  453 => 249,  448 => 247,  445 => 246,  438 => 241,  433 => 239,  430 => 238,  422 => 233,  415 => 229,  409 => 226,  406 => 224,  398 => 219,  391 => 215,  385 => 212,  382 => 210,  374 => 205,  367 => 201,  361 => 198,  358 => 196,  350 => 191,  343 => 187,  337 => 184,  334 => 182,  326 => 177,  319 => 173,  313 => 170,  310 => 168,  302 => 163,  295 => 159,  289 => 156,  286 => 154,  278 => 149,  271 => 145,  265 => 142,  262 => 140,  254 => 135,  247 => 131,  241 => 128,  238 => 126,  230 => 121,  223 => 117,  217 => 114,  214 => 112,  206 => 107,  199 => 103,  193 => 100,  190 => 98,  182 => 93,  175 => 89,  169 => 86,  166 => 84,  158 => 79,  151 => 75,  145 => 72,  142 => 70,  134 => 65,  127 => 61,  121 => 58,  118 => 56,  110 => 51,  103 => 47,  97 => 44,  94 => 42,  86 => 37,  79 => 33,  73 => 30,  70 => 28,  62 => 23,  55 => 19,  49 => 16,  46 => 14,  41 => 10,  35 => 7,  30 => 4,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -724,9 +735,16 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
     {# Idem pour le champ \"photo\". #}
   <div class=\"form-group\">
     {{ form_label(form.photo, \"Photo \", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-    {{ form_errors(form.photo) }}
     <div class=\"col-sm-10\">
       {{ form_widget(form.photo)}}
+    </div>
+  </div>
+
+      {# Idem pour le champ \"Enregistrer\". #}
+  <div class=\"form-group\">
+    {{ form_label(form.Enregistrer, \"Enregistrer \", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    <div class=\"col-sm-10\">
+      {{ form_widget(form.Enregistrer)}}
     </div>
   </div>
 
@@ -737,6 +755,6 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
 
 
   
-</div>", "TOBATBundle:Default:formAjout.html.twig", "C:\\wamp64\\www\\PPE4_TOBAT.git\\TOBAT\\Symfony\\src\\TOBAT\\Bundle/Resources/views/Default/formAjout.html.twig");
+</div>", "TOBATBundle:Default:formAjout.html.twig", "C:\\wamp64\\www\\PPE4_TOBAT\\TOBAT\\Symfony\\src\\TOBAT\\Bundle/Resources/views/Default/formAjout.html.twig");
     }
 }
