@@ -9,6 +9,7 @@ use TOBAT\Bundle\Entity\Bateau;
 use TOBAT\Bundle\Form\BateauType;
 use TOBAT\Bundle\Form\BateauEditType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -28,14 +29,6 @@ class DefaultController extends Controller
 
         $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
         
-        //A SUPPRIMER
-        $LesBateaux = array
-  (
-  array("nom"=>"Bateau1"),
-  array("nom"=>"Bateau2"),
-  array("nom"=>"Bateau15"),
-  array("nom"=>"Bateau13")
-  );
       return $this->render('TOBATBundle:Default:voir.html.twig', array('LesBateaux' =>   $LesBateaux ));
     }
 
@@ -60,11 +53,24 @@ class DefaultController extends Controller
         return $this->render('TOBATBundle:Default:index.html.twig',  array('form' =>$form->createView(), ));
     }
 
-    public function ajouterAction()
+    public function ajouterAction(request $request)
     {
         $bateau = new Bateau();
 
     	$form = $this-> get ('form.factory')-> create(BateauType::class, $bateau);
+
+       if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+      {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($bateau);
+        $em->flush();
+        
+        $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+         $managerBateau = $this->getDoctrine()
+                               ->getManager();
+        $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
+       return $this->render('TOBATBundle:Default:voir.html.twig', array('LesBateaux' =>   $LesBateaux ));
+      }
     	
         return $this->render('TOBATBundle:Default:ajout.html.twig', array('form' => $form->createView(),));
     }
@@ -86,11 +92,11 @@ class DefaultController extends Controller
         $em->persist($bateau);
         $em->flush();
         
-        $request->getSession()->getFlashBag()->add('notice', 'Bateau bien modifiée.');
-
-        return $this->redirectToRoute('TOBATBundle:Default:voir.html.twig');
+        $request->getSession()->getFlashBag()->add('notice', 'Bateau bien modifié.');
+         return $this->redirectToRoute('tobat_connexion');
+        
       }
-      return $this->redirectToRoute('TOBATBundle:Default:voir.html.twig');
+      return $this->render('TOBATBundle:Default:modification.html.twig', array('form' => $form->createView(),));
     }
 
     public function supprimerAction($id)
@@ -101,6 +107,6 @@ class DefaultController extends Controller
       $bateau = $managerBateau->getRepository('TOBATBundle:Bateau')->find($id);
       $managerBateau->remove($bateau);
       $managerBateau->flush();
-      return $this->redirectToRoute('TOBATBundle:Default:voir.html.twig');
+      return $this->redirectToRoute('tobat_connexion');
     }
 }

@@ -39,6 +39,7 @@ class BateauType extends AbstractType
             ->add('photo')
 
            ->add('Enregistrer', SubmitType::class); 
+           ;
     }/**
      * {@inheritdoc}
      */

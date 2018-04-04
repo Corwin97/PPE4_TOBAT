@@ -15,11 +15,11 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03->enter($__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
+        $__internal_a8a12dd908a210b2ed366a0a6f1242c75ed5c60ec093dc39af5922369fd4d610 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a8a12dd908a210b2ed366a0a6f1242c75ed5c60ec093dc39af5922369fd4d610->enter($__internal_a8a12dd908a210b2ed366a0a6f1242c75ed5c60ec093dc39af5922369fd4d610_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
 
-        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb->enter($__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
+        $__internal_d00620fc28d67b20bfe9fe8414e504ed5039cc974bf24c82676518feea4df24f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d00620fc28d67b20bfe9fe8414e504ed5039cc974bf24c82676518feea4df24f->enter($__internal_d00620fc28d67b20bfe9fe8414e504ed5039cc974bf24c82676518feea4df24f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TOBATBundle:Default:formAjout.html.twig"));
 
         // line 1
         echo "<h3>Ajouter un bateau</h3>
@@ -432,28 +432,35 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
         // line 239
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Photo "));
         echo "
+    ";
+        // line 240
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'errors');
+        echo "
     <div class=\"col-sm-10\">
       ";
-        // line 241
+        // line 242
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "photo", array()), 'widget');
         echo "
     </div>
   </div>
 
-      ";
-        // line 246
-        echo "  <div class=\"form-group\">
-    ";
+        ";
         // line 247
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "Enregistrer", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Enregistrer "));
+        echo "  ";
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "Enregistrer", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
-    <div class=\"col-sm-10\">
-      ";
-        // line 249
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "Enregistrer", array()), 'widget');
+
+  ";
+        // line 252
+        echo "  ";
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
-    </div>
-  </div>
+
+  ";
+        // line 255
+        echo "  ";
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "
 
 
 
@@ -464,10 +471,10 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
   
 </div>";
         
-        $__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03->leave($__internal_8f303d8dd2ae0e4d2065e0811aec9b98c6bbc88c3c90b90a8907ab99826c3f03_prof);
+        $__internal_a8a12dd908a210b2ed366a0a6f1242c75ed5c60ec093dc39af5922369fd4d610->leave($__internal_a8a12dd908a210b2ed366a0a6f1242c75ed5c60ec093dc39af5922369fd4d610_prof);
 
         
-        $__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb->leave($__internal_0de351770b14cbd254e2da9d9331640d5e245b2ba76453745266099f3b7c06eb_prof);
+        $__internal_d00620fc28d67b20bfe9fe8414e504ed5039cc974bf24c82676518feea4df24f->leave($__internal_d00620fc28d67b20bfe9fe8414e504ed5039cc974bf24c82676518feea4df24f_prof);
 
     }
 
@@ -483,7 +490,7 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
 
     public function getDebugInfo()
     {
-        return array (  453 => 249,  448 => 247,  445 => 246,  438 => 241,  433 => 239,  430 => 238,  422 => 233,  415 => 229,  409 => 226,  406 => 224,  398 => 219,  391 => 215,  385 => 212,  382 => 210,  374 => 205,  367 => 201,  361 => 198,  358 => 196,  350 => 191,  343 => 187,  337 => 184,  334 => 182,  326 => 177,  319 => 173,  313 => 170,  310 => 168,  302 => 163,  295 => 159,  289 => 156,  286 => 154,  278 => 149,  271 => 145,  265 => 142,  262 => 140,  254 => 135,  247 => 131,  241 => 128,  238 => 126,  230 => 121,  223 => 117,  217 => 114,  214 => 112,  206 => 107,  199 => 103,  193 => 100,  190 => 98,  182 => 93,  175 => 89,  169 => 86,  166 => 84,  158 => 79,  151 => 75,  145 => 72,  142 => 70,  134 => 65,  127 => 61,  121 => 58,  118 => 56,  110 => 51,  103 => 47,  97 => 44,  94 => 42,  86 => 37,  79 => 33,  73 => 30,  70 => 28,  62 => 23,  55 => 19,  49 => 16,  46 => 14,  41 => 10,  35 => 7,  30 => 4,  25 => 1,);
+        return array (  461 => 255,  455 => 252,  449 => 247,  442 => 242,  437 => 240,  433 => 239,  430 => 238,  422 => 233,  415 => 229,  409 => 226,  406 => 224,  398 => 219,  391 => 215,  385 => 212,  382 => 210,  374 => 205,  367 => 201,  361 => 198,  358 => 196,  350 => 191,  343 => 187,  337 => 184,  334 => 182,  326 => 177,  319 => 173,  313 => 170,  310 => 168,  302 => 163,  295 => 159,  289 => 156,  286 => 154,  278 => 149,  271 => 145,  265 => 142,  262 => 140,  254 => 135,  247 => 131,  241 => 128,  238 => 126,  230 => 121,  223 => 117,  217 => 114,  214 => 112,  206 => 107,  199 => 103,  193 => 100,  190 => 98,  182 => 93,  175 => 89,  169 => 86,  166 => 84,  158 => 79,  151 => 75,  145 => 72,  142 => 70,  134 => 65,  127 => 61,  121 => 58,  118 => 56,  110 => 51,  103 => 47,  97 => 44,  94 => 42,  86 => 37,  79 => 33,  73 => 30,  70 => 28,  62 => 23,  55 => 19,  49 => 16,  46 => 14,  41 => 10,  35 => 7,  30 => 4,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -735,18 +742,22 @@ class __TwigTemplate_430c2ad31bad5b1c938aca20e89e8db3fa7bf20d9e9430595d19debafe3
     {# Idem pour le champ \"photo\". #}
   <div class=\"form-group\">
     {{ form_label(form.photo, \"Photo \", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.photo) }}
     <div class=\"col-sm-10\">
       {{ form_widget(form.photo)}}
     </div>
   </div>
 
-      {# Idem pour le champ \"Enregistrer\". #}
-  <div class=\"form-group\">
-    {{ form_label(form.Enregistrer, \"Enregistrer \", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-    <div class=\"col-sm-10\">
-      {{ form_widget(form.Enregistrer)}}
-    </div>
-  </div>
+        {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
 
 
 

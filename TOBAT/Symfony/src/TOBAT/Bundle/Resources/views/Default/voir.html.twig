@@ -3,10 +3,18 @@
 <ul>
 	<li><a href="{{ path('tobat_ajouter') }}">Ajouter un bateau</a></li>
 	<table>
-	<tr> <th> Prenom </th> </tr>
+	<tr> <th> Prenom </th> 
+	<th> Prix </th>
+		<th> Type</th>
+	 <th> Modifier </th>
+	 <th> Supprimer</th> </tr>
 	{% for bateau in LesBateaux %}
 		<tr>
 			<td>{{ bateau.nom }}</td>
+			<td>{{ bateau.prix}}
+			<td>{{ bateau.type }}</td>
+			<td> <a href="{{ path('tobat_modifier', {'id': bateau.id}) }}">modifier</a>
+			<td> <a href="{{ path('tobat_supprimer', {'id': bateau.id}) }}">supprimer</a>
 		</tr>
 	{% endfor %}
 	</table>
