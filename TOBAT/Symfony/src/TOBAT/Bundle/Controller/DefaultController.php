@@ -10,6 +10,10 @@ use TOBAT\Bundle\Form\BateauType;
 use TOBAT\Bundle\Form\BateauEditType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 class DefaultController extends Controller
 {
@@ -19,94 +23,26 @@ class DefaultController extends Controller
 
     	$form = $this-> get ('form.factory')-> create(AdminType::class, $connexion);
     	
-        return $this->render('TOBATBundle:Default:index.html.twig', array('form' => $form->createView(),));
+      return $this->render('TOBATBundle:Default:index.html.twig', array('form' => $form->createView(),));
     }
 
     public function voirAction()
     {
-      $managerBateau = $this->getDoctrine()
-                               ->getManager();
+      $managerBateau = $this->getDoctrine()->getManager();
 
-        $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
+      $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
         
       return $this->render('TOBATBundle:Default:voir.html.twig', array('LesBateaux' =>   $LesBateaux ));
     }
 
-	public function connexionAction($login, $password)
+    public function jsonAction()
     {
-        $connexion = new Admin();
+      $encoders = array(new XmlEncoder(), new JsonEncoder());
+      $normalizers = array(new GetSetMethodNormalizer());
+      $serializer = new Serializer($normalizers, $encoders);
+      $manager = $this->getDoctrine()->getManager();
 
-    	$form = $this-> get ('form.factory')-> create(AdminType::class, $connexion);
-    	$managerAdmin = $this->getDoctrine()
-        	                     ->getManager();
-
-      	$admins = $managerAdmin->getRepository('TOBATBundle:Admin')->findAll();
-
-      	
-      		if($login == $admin["login"] && $password == $admin["password"])
-      		{
-				return $this->redirectToRoute('TOBATBundle:Default:voir.html.twig');
-      		}
-      	
-
-
-        return $this->render('TOBATBundle:Default:index.html.twig',  array('form' =>$form->createView(), ));
-    }
-
-    public function ajouterAction(request $request)
-    {
-        $bateau = new Bateau();
-
-    	$form = $this-> get ('form.factory')-> create(BateauType::class, $bateau);
-
-       if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
-      {
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($bateau);
-        $em->flush();
-        
-        $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-         $managerBateau = $this->getDoctrine()
-                               ->getManager();
-        $LesBateaux = $managerBateau->getRepository('TOBATBundle:Bateau')->findAll();
-       return $this->render('TOBATBundle:Default:voir.html.twig', array('LesBateaux' =>   $LesBateaux ));
-      }
-    	
-        return $this->render('TOBATBundle:Default:ajout.html.twig', array('form' => $form->createView(),));
-    }
-
-    public function modifierAction($id, request $request)
-    {
-      
-      $managerBateau = $this->getDoctrine()
-                             ->getManager();
-
-      $bateau = $managerBateau->getRepository('TOBATBundle:Bateau')->find($id);
-      
-      $form = $this->get('form.factory')->create(BateauEditType::class, $bateau);
-
-      //Deuxième passage : on enregistre l'objet $bateau dans la base de données.
-      if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
-      {
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($bateau);
-        $em->flush();
-        
-        $request->getSession()->getFlashBag()->add('notice', 'Bateau bien modifié.');
-         return $this->redirectToRoute('tobat_connexion');
-        
-      }
-      return $this->render('TOBATBundle:Default:modification.html.twig', array('form' => $form->createView(),));
-    }
-
-    public function supprimerAction($id)
-    {
-      $managerBateau = $this->getDoctrine()
-                             ->getManager();
-
-      $bateau = $managerBateau->getRepository('TOBATBundle:Bateau')->find($id);
-      $managerBateau->remove($bateau);
-      $managerBateau->flush();
-      return $this->redirectToRoute('tobat_connexion');
+      $LesBateaux = $manager->getRepository('TOBATBundle:Bateau')->findAll();
+      return new Response($serializer->serialize($LesBateaux, 'json'));
     }
 }

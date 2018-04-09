@@ -37,6 +37,11 @@ class BateauType extends AbstractType
             ->add('longitude')
             ->add('type')
             ->add('photo')
+            ->add('hall', EntityType::class, array(
+                  'class'       => 'TOBATBundle:Hall',
+                  'choice_label'=> 'nom',
+                  'multiple'    => false,
+              ))
 
            ->add('Enregistrer', SubmitType::class); 
            ;

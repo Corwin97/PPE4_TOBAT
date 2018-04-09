@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html style="margin: 0; padding: 0; height: 100%">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Plateforme TOBAT</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  {% endblock %}
+
+</head>
+
+<body style="margin: 0; padding: 0; height: 100%;">
+    <header class="header" style="padding: 15px; border-bottom: 5px solid #1A78C2; box-shadow: 5px -5px 10px 10px rgba(0,0,0,0.2)">
+        <div class="container-fluid text-right text-md-left">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="https://image.ibb.co/cz9Yzx/icon.png" style="width: 50px;">
+                </div>
+                <div class="col-md-offset-6 col-md-4">
+                    <ul class="nav navbar-nav">
+                      <li><a href="{{ path('tobat_accueil') }}">Accueil</a></li>
+                      <li><a href="{{ path('tobat_ajouter') }}">Ajouter</a></li>
+                      <li><a href="{{ path('tobat_logout') }}">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+  <div class="container" style="margin-top: 15px;">
+  {% block contenu %}{% endblock %}
+  </div>
+
+<!--Footer-->
+<div class="piedPage" style="background-color: #3E4551; color: white; position: fixed; left: 0; bottom: 0; width: 100%;">
+
+    <!--Footer Links-->
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-12" style="padding: 10px;">
+                <ul class="list-inline">
+                    <li>
+                        <a href="#!" style="color: white;">Accueil</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="#!" style="color: white;">Mentions Légal</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="#!" style="color: white;">Plan du site</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Copyright-->
+    <div class="footer-copyright py-3 text-center" style="background-color: #323741; padding: 5px;">
+        © 2018 Tobat:
+        <a href="#" style="color: white;"> Tobat.com </a>
+    </div>
+</footer>
+
+  </body>
 </html>

@@ -1,19 +1,30 @@
 tobat_homepage:
     path:     /
     defaults: { _controller: TOBATBundle:Default:index }
+    
+tobat_login:
+    path:     /login
+    defaults: { _controller: TOBATBundle:Security:login }
 
-tobat_connexion:
+tobat_logout:
+    path:     /logout
+
+tobat_accueil:
     path:     /voir
     defaults: { _controller: TOBATBundle:Default:voir}
 
 tobat_ajouter:
     path:   /ajouter
-    defaults:  { _controller: TOBATBundle:Default:ajouter }
+    defaults:  { _controller: TOBATBundle:Add:ajouter }
 
 tobat_modifier:
     path:   /modifier/{id}
-    defaults:  { _controller: TOBATBundle:Default:modifier }
+    defaults:  { _controller: TOBATBundle:Edit:modifier }
 
 tobat_supprimer:
     path:   /supprimer/{id}
-    defaults:  { _controller: TOBATBundle:Default:supprimer }
+    defaults:  { _controller: TOBATBundle:Delete:supprimer }
+
+tobat_json:
+    path:     /json
+    defaults: { _controller: TOBATBundle:Default:json}

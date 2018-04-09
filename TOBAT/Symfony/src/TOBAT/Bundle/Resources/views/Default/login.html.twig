@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html style="margin: 0; padding: 0; height: 100%">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Plateforme TOBAT</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  {% endblock %}
+
+</head>
+
+
+	{% if app.user %}
+        <header class="header" style="padding: 15px; border-bottom: 5px solid #1A78C2; box-shadow: 5px -5px 10px 10px rgba(0,0,0,0.2)">
+            <div class="container-fluid text-right text-md-left">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="https://image.ibb.co/cz9Yzx/icon.png" style="width: 50px;">
+                    </div>
+                    <div class="col-md-offset-6 col-md-4">
+                        <ul class="nav navbar-nav">
+                          <li><a href="{{ path('tobat_accueil') }}">Accueil</a></li>
+                          <li><a href="{{ path('tobat_ajouter') }}">Ajouter</a></li>
+                          <li><a href="{{ path('tobat_logout') }}">Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+	{% else %}
+		<header class="header" style="padding: 15px; border-bottom: 5px solid #1A78C2; box-shadow: 5px -5px 10px 10px rgba(0,0,0,0.2)">
+            <div class="container-fluid text-right text-md-left">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="https://image.ibb.co/cz9Yzx/icon.png" style="width: 50px;">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+		{% if error %}
+		    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+		<div class="container text-center" style="margin-top: 15px; width: 50%;">
+			<form action="{{ path('tobat_login') }}" method="post">
+				<div class="form-group">
+				    <label for="username">Identifiant</label>
+				    <input type="text" class="form-control" id="username" name="_username" autocomplete="off"/>
+				</div>
+
+				<div class="form-group">
+				    <label for="password">Mot de passe</label>
+				    <input type="password" class="form-control" id="password" name="_password" autocomplete="off" />
+			    </div>
+			    <button type="submit" class="btn btn-primary">Connexion</button>
+			</form>
+		</div>
+
+	{% endif %}
+
+<!--Footer-->
+<div class="piedPage" style="background-color: #3E4551; color: white; position: fixed; left: 0; bottom: 0; width: 100%;">
+
+    <!--Footer Links-->
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-12" style="padding: 10px;">
+                <ul class="list-inline">
+                    <li>
+                        <a href="#!" style="color: white;">Accueil</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="#!" style="color: white;">Mentions Légal</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="#!" style="color: white;">Plan du site</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Copyright-->
+    <div class="footer-copyright py-3 text-center" style="background-color: #323741; padding: 5px;">
+        © 2018 Tobat:
+        <a href="#" style="color: white;"> Tobat.com </a>
+    </div>
+</footer>
+
+  </body>
+</html>

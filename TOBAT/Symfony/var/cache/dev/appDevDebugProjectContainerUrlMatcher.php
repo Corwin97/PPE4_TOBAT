@@ -112,24 +112,39 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::indexAction',  '_route' => 'tobat_homepage',);
         }
 
-        // tobat_connexion
+        // tobat_login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\SecurityController::loginAction',  '_route' => 'tobat_login',);
+        }
+
+        // tobat_logout
+        if ('/logout' === $pathinfo) {
+            return array('_route' => 'tobat_logout');
+        }
+
+        // tobat_accueil
         if ('/voir' === $pathinfo) {
-            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::voirAction',  '_route' => 'tobat_connexion',);
+            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::voirAction',  '_route' => 'tobat_accueil',);
         }
 
         // tobat_ajouter
         if ('/ajouter' === $pathinfo) {
-            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::ajouterAction',  '_route' => 'tobat_ajouter',);
+            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\AddController::ajouterAction',  '_route' => 'tobat_ajouter',);
         }
 
         // tobat_modifier
         if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_modifier')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::modifierAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_modifier')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\EditController::modifierAction',));
         }
 
         // tobat_supprimer
         if (0 === strpos($pathinfo, '/supprimer') && preg_match('#^/supprimer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_supprimer')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::supprimerAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'tobat_supprimer')), array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DeleteController::supprimerAction',));
+        }
+
+        // tobat_json
+        if ('/json' === $pathinfo) {
+            return array (  '_controller' => 'TOBAT\\Bundle\\Controller\\DefaultController::jsonAction',  '_route' => 'tobat_json',);
         }
 
         // homepage

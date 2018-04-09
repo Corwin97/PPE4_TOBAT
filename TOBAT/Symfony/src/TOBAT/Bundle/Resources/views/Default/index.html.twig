@@ -2,13 +2,27 @@
 	
 {% endblock %}
 
-{% block TOBAT_body %}
+<body>
 
-	{{ include ("TOBATBundle:Default:form.html.twig")}}
-	<a href="{{ path('tobat_connexion') }}">Valider</a>
+	{% if app.user %}
+		<h1>Bienvenue sur la plateforme Tobat</h1>
+		<a href="{{ path('tobat_logout') }}">Logout</a>
+	{% else %}
 
-	<ul>
-		
-	</ul>
+		{% if error %}
+		    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-{% endblock %}
+		<form action="{{ path('tobat_login') }}" method="post">
+		    <label for="username">Username:</label>
+		    <input type="text" id="username" name="_username" autocomplete="off" />
+
+		    <label for="password">Password:</label>
+		    <input type="password" id="password" name="_password" autocomplete="off" />
+
+		    <button type="submit">login</button>
+		</form>
+
+	{% endif %}
+
+</body>

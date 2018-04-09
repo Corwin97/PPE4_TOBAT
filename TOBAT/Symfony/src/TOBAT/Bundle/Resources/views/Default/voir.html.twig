@@ -1,24 +1,38 @@
+{% extends 'base.html.twig' %}
 
+{% block contenu %}
+	
 
-<ul>
-	<li><a href="{{ path('tobat_ajouter') }}">Ajouter un bateau</a></li>
-	<table>
-	<tr> <th> Prenom </th> 
-	<th> Prix </th>
-		<th> Type</th>
-	 <th> Modifier </th>
-	 <th> Supprimer</th> </tr>
-	{% for bateau in LesBateaux %}
+{% for bateau in LesBateaux %}
+	<table class="table" style="margin-top: 15px; margin-bottom: 15px;">
+		<thead style="background-color: #1111;">
+			<tr>
+				<td scope="col">Nom: {{ bateau.nom }}</td>
+			</tr>
+		</thead>
 		<tr>
-			<td>{{ bateau.nom }}</td>
-			<td>{{ bateau.prix}}
-			<td>{{ bateau.type }}</td>
-			<td> <a href="{{ path('tobat_modifier', {'id': bateau.id}) }}">modifier</a>
-			<td> <a href="{{ path('tobat_supprimer', {'id': bateau.id}) }}">supprimer</a>
+			<td scope="col">Annee: {{ bateau.annee}}</td>
+			<td scope="col">Type: {{ bateau.type }}</td>
+			<td scope="col">Prix: {{ bateau.prix }} €</td>
 		</tr>
-	{% endfor %}
+		<tr>
+			<td scope="col">Longeur: {{ bateau.longueur}} m</td>
+			<td scope="col">Largeur: {{ bateau.largeur}} m</td>
+			<td scope="col">Hauteur: {{ bateau.hauteur}} m</td>	
+		</tr>
+		<tr>				
+			<td scope="col"><a href="{{ path('tobat_modifier', {'id': bateau.id}) }}">modifier</a></td>
+			<td scope="col"><a href="{{ path('tobat_supprimer', {'id': bateau.id}) }}">supprimer</a></td>
+			<td scope="col"></td>
+		</tr>
 	</table>
-		
-	</ul>
+{% endfor %}
 
-
+	<div class="container">
+		<div class="col-md-12">
+			<center>
+				<a href="{{ path('tobat_ajouter') }}" class="btn btn-primary">Ajouter un bateau</a>				
+			</center>
+		</div>
+	</div>
+{% endblock %}

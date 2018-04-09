@@ -106,9 +106,9 @@ class Bateau
     private $nbHMoteur;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="energie",  type="string", length=255)
+     * @ORM\Column(name="energie", type="integer")
      */
     private $energie;
 
@@ -563,28 +563,5 @@ class Bateau
     {
         return $this->photo;
     }
-
-    /**
-     * Set hall
-     *
-     * @param \TOBAT\Bundle\Entity\Hall $hall
-     *
-     * @return Bateau
-     */
-    public function setHall(\TOBAT\Bundle\Entity\Hall $hall)
-    {
-        $this->hall = $hall;
-    
-        return $this;
-    }
-
-    /**
-     * Get hall
-     *
-     * @return \TOBAT\Bundle\Entity\Hall
-     */
-    public function getHall()
-    {
-        return $this->hall;
-    }
 }
+
